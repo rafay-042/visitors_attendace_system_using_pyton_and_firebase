@@ -1,0 +1,36 @@
+Aim of the project:
+                  This project aims to detect the faces of attendees and upload
+the data to the Firebase Database, to access later on. This is a prototype code
+that successfully demonstrates the working of an attendance system and can be
+implemented on large scale for places like universities, marriage halls, hospitals,
+hotels etc.
+
+Abstract:
+         The main code is written in the file "take_photo.py". I added separate
+code files of face detection and firebase that helped me in the process of making
+this project. I included the "xml" file as well. The main code uses picamera to 
+take photos when the program is run, It takes total of 10 images for demonstration
+purposes, each after certain interval of time. If a face is present in the frame,
+it detects it and sends that picture into the Firebase. If a face is not present,
+it discards that picture. So at the end, the firebase will only contain data of our
+attendees and empty frames representing errors will be filtered out.
+
+Working:
+        Following are the steps that show the working of this project:
+1-Necessary imports are made i.e., piCamera, cv2, pyrebase etc.
+2-Firebase configuration of my firebase is written but you can add yours
+  according to the format given in the folder "Startup Firebase code".
+3-Variable firebase and storage is intialized to put data of pictures
+  later on.
+4-Variable camera is initialized to take pictures from pi Camera.
+5-10 variables are initalized each for holding the data of their respective
+  image.
+6-Camera starts capturing for 5 seconds and then stops. Stores the picture
+  into respective variable (in first iteration, in "name").
+7-Reads the image, converts it into grayscale, checks if a face is present
+  in the frame with the help of Haar Cascade xml file.
+8-If a face is detected, it sends the image to firebase URL and shows the
+  message on console. If not, then discards the image and shows respective
+  message on console.
+9-Repeats the above process 9 times and ends.
+
